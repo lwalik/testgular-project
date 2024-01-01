@@ -1,9 +1,13 @@
 import { ElementLocator, Router, cssSelector } from '@lowgular/testgular';
 import { LoginFormElement } from '../elements/login-form';
-import { USER_CREDENTIALS } from '../shared/app-config';
+import { CredentialsModel } from '../shared/app-config';
 import { ROUTES } from '../shared/routes';
 
-export const login = async (router: Router, elementLocator: ElementLocator) => {
+export const login = async (
+  router: Router,
+  elementLocator: ElementLocator,
+  credentials: CredentialsModel
+) => {
   await router.navigateAndWait(ROUTES.LOGIN);
 
   const loginForm = elementLocator.locateChild(
@@ -17,8 +21,8 @@ export const login = async (router: Router, elementLocator: ElementLocator) => {
   };
 
   await loginForm.setValue({
-    login: USER_CREDENTIALS.login,
-    password: USER_CREDENTIALS.password,
+    login: credentials.login,
+    password: credentials.password,
   });
   await loginForm.submit();
 };

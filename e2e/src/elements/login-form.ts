@@ -7,9 +7,9 @@ import {
 } from '@lowgular/testgular';
 
 export interface LoginFormSelectorsModel {
-  login: ElementSelector;
-  password: ElementSelector;
-  submit: ElementSelector;
+  readonly login: ElementSelector;
+  readonly password: ElementSelector;
+  readonly submit: ElementSelector;
 }
 
 export class LoginFormElement extends ContainerElement {
