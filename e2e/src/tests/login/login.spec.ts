@@ -8,9 +8,9 @@ import {
   it,
   textSelector,
 } from '@lowgular/testgular';
-import { LoginFormElement } from '../elements/login-form';
-import { APP_CONFIG, CREDENTIALS } from '../shared/app-config';
-import { ROUTES } from '../shared/routes';
+import { LoginFormElement } from '../../elements/login-form';
+import { APP_CONFIG, USER_CREDENTIALS } from '../../shared/app-config';
+import { ROUTES } from '../../shared/routes';
 
 it(
   'Should be redirected from Home Page to Login Page',
@@ -34,8 +34,8 @@ it('Should be logged in', APP_CONFIG, async (app: App) => {
   };
 
   await loginForm.setValue({
-    login: CREDENTIALS.login,
-    password: CREDENTIALS.password,
+    login: USER_CREDENTIALS.login,
+    password: USER_CREDENTIALS.password,
   });
   await loginForm.submit();
 });
@@ -83,8 +83,8 @@ describe('Login button should be disabled', () => {
   [
     {
       when: {
-        login: CREDENTIALS.login,
-        password: CREDENTIALS.password,
+        login: USER_CREDENTIALS.login,
+        password: USER_CREDENTIALS.password,
       },
       then: {
         isDisabled: false,
@@ -92,7 +92,7 @@ describe('Login button should be disabled', () => {
     },
     {
       when: {
-        login: CREDENTIALS.login,
+        login: USER_CREDENTIALS.login,
         password: '',
       },
       then: {
@@ -150,8 +150,8 @@ it(
       submit: cssSelector('button[type="submit"]'),
     };
     await loginForm.setValue({
-      login: CREDENTIALS.login,
-      password: CREDENTIALS.password,
+      login: USER_CREDENTIALS.login,
+      password: USER_CREDENTIALS.password,
     });
     await loginForm.submit();
 

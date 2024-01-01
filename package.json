@@ -6,7 +6,7 @@
     "start": "nx serve",
     "build": "nx build",
     "pretest": "tsc --incremental -p ./tsconfig.spec.json",
-    "test": "playwright test -c ./e2e/src"
+    "test": "playwright test -c ./e2e/src/tests"
   },
   "private": true,
   "dependencies": {
