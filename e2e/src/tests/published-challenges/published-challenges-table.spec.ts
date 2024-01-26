@@ -91,6 +91,6 @@ it('Should be redirect to detail', APP_CONFIG, async (app: App) => {
   );
   await viewBtn.click();
   await router.expectAndWaitForUrl(
-    StringMatcher.mustContainWords([ROUTES.PUBLISHED_CHALLENGE])
+    StringMatcher.mustContainWords([ROUTES.ADMIN_PUBLISHED_CHALLENGE])
   );
 });

@@ -1,10 +1,8 @@
 import {
   ContainerElement,
   ElementSelector,
-  StringMatcher,
   TextElement,
 } from '@lowgular/testgular';
-import { BACKGROUND_COLORS } from '../shared/colors';
 import { BadgeElement } from './badge';
 
 export interface PipelineAccordionItemSelectorsModel {
@@ -75,14 +73,5 @@ export class PipelineAccordionItemElement extends ContainerElement {
 
   async expectStatusVisible(value: boolean) {
     return this.status.expectVisible(value);
-  }
-
-  async expectStatusColor(color: BACKGROUND_COLORS) {
-    console.log('color: ', color);
-    await this.status.expectIconClass(StringMatcher.mustContainWords([color]));
-  }
-
-  async getStatusText(): Promise<string> {
-    return await this.status.getText();
   }
 }

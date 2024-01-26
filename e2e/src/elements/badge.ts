@@ -4,6 +4,7 @@ import {
   SimpleElement,
   TextElement,
   cssSelector,
+  escapeRegExp,
 } from '@lowgular/testgular';
 
 export interface BadgeSelectorsModel {
@@ -14,7 +15,7 @@ export interface BadgeSelectorsModel {
 export class BadgeElement extends ContainerElement {
   private _selectors: BadgeSelectorsModel = {
     text: cssSelector('.rounded-4'),
-    icon: cssSelector('.bi-check-lg'),
+    icon: cssSelector(escapeRegExp('.bi')),
   };
 
   private get text(): TextElement {
@@ -31,17 +32,5 @@ export class BadgeElement extends ContainerElement {
 
   async expectText(text: string) {
     await this.text.expectContent(text);
-  }
-
-  async expectIconClass(cls: string) {
-    await this.icon.expectAttribute('class', cls);
-  }
-
-  async expectClass(cls: string) {
-    await this.expectAttribute('class', cls);
-  }
-
-  async getText(): Promise<string> {
-    return await this.text.getContent();
   }
 }

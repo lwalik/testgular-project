@@ -2,8 +2,14 @@
 require('dotenv').config();
 
 export interface CredentialsModel {
-  login: string;
-  password: string;
+  readonly login: string;
+  readonly password: string;
+}
+
+export interface UserChallengeDataModel {
+  readonly completedChallengeId: string;
+  readonly challengeSolutionId: string;
+  readonly uiReportId: string;
 }
 
 export const USER_CREDENTIALS: CredentialsModel = JSON.parse(
@@ -12,6 +18,10 @@ export const USER_CREDENTIALS: CredentialsModel = JSON.parse(
 
 export const ADMIN_CREDENTIALS: CredentialsModel = JSON.parse(
   process.env.ADMIN_CREDENTIALS
+);
+
+export const USER_CHALLENGE_DATA: UserChallengeDataModel = JSON.parse(
+  process.env.USER_CHALLENGE_DATA
 );
 
 const APP_URL = process.env['APP_URL'];
